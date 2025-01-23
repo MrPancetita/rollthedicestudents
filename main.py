@@ -24,7 +24,6 @@ def pick_random_student_v2(students):
         else:
             break
 
-
 def main():
     
     file_path = input("Enter the path to the student list file: ")
