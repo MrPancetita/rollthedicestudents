@@ -26,12 +26,25 @@ def pick_random_student_v2(students):
 
 
 def main():
+    
     file_path = input("Enter the path to the student list file: ")
     students = load_students(file_path)
     
     while True:
-        selected_student = pick_random_student(students)
-        print(f"Selected student: {selected_student}")
+        print("Menu:")
+        print("1. Pick a random student to answer a question")
+        print("2. Randomly assign seats to students")
+        choice = input("Enter your choice (1/2): ").strip()
+     
+        if choice == '1':
+            selected_student = pick_random_student(students)
+            print(f"Selected student: {selected_student}")
+        elif choice == '2':
+            student, pc_number = assign_pc_to_student(students)
+            print(f"Assigned PC {pc_number} to student: {student}")
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
+            continue
         
         reroll = input("Do you want to reroll and pick another? (yes/no): ").strip().lower()
         if reroll != 'yes':
